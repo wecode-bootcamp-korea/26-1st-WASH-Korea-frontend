@@ -10,23 +10,23 @@ export class Footer extends Component {
       <footer className="footer">
         <div className="footerWrapper">
           <div className="subWrapLeft">
-            <img className="logo" src="../images/logo.png" alt="WASH logo" />
+            <img className="logo" alt="WASH logo" src="../images/logo.png" />
             <div className="customerService">
               <div className="csInfo">
                 <span className="csName">고객센터</span>
-                <span className="csNumber">1644-2357</span>
-                <div className="csEmail">webmaster@lush.co.kr</div>
+                <span className="csNumber">5308-1013</span>
+                <div className="csEmail">cswash@wecode.co.kr</div>
                 <div className="csTime">
-                  <p>상담전화 13:00~16:00(평일)</p>
-                  <p className="talkOperationTime">상담톡 10:00~16:00(평일)</p>
+                  <p>상담전화 13:00~17:00(평일)</p>
+                  <p className="talkOperationTime">상담톡 10:00~17:00(평일)</p>
                 </div>
               </div>
               <div className="order">
                 <div className="orderInfo">
                   <span>기업선물</span>
-                  <span className="orderNumber">070-4713-8543</span>
+                  <span className="orderNumber">070-5308-1013</span>
                 </div>
-                <div className="orderEmail">order@lush.co.kr</div>
+                <div className="orderEmail">orderwash@wecode.co.kr</div>
               </div>
               <div className="snsIcon">
                 <div className="iconWrapper">
@@ -71,16 +71,17 @@ export class Footer extends Component {
             </div>
             <div className="companyInfo">
               <p className="address">
-                서울특별시 서초구 서운로 138 (서초동아타워) 6층 | 사이트 운영자
-                : 주식회사 러쉬코리아 | 대표이사 : 우미령
+                서울특별시 강남구 테헤란로 427 (위워크타워) 10층 | 사이트 운영자
+                : 주식회사 워시코리아 | 대표이사 : 권은경, 박보라, 석예주,
+                이수경, 허규빈
               </p>
               <p className="bizInfo">
-                사업자 등록번호 : 201-81-77964 사업자정보확인 | 통신판매업
-                신고번호 : 2012-서울서초-0647 | 개인정보보호책임자 : 우승용
+                사업자 등록번호 : 530-81-01310 사업자정보확인 | 교육서비스업
+                등록번호 : 제 13227 호 | 개인정보보호책임자 : 이수경
               </p>
             </div>
             <div className="copyright">
-              COPYRIGHT © LUSHKOREA CO. LTD. ALL RIGHTS RESERVED.
+              Copyright © 2019. Gracefulrain Co., Ltd.
             </div>
           </div>
         </div>
