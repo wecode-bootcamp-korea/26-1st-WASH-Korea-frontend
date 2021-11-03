@@ -6,10 +6,12 @@ $fontColor: #fff;
   align-items: center;
   justify-content: center;
 }
+
 @mixin flexSpaceBtw {
   display: flex;
   justify-content: space-between;
 }
+
 @mixin positionDefault {
   position: absolute;
   top: 0;
