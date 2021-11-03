@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './Footer.scss';
 import { RiFacebookFill } from 'react-icons/ri';
 import { FiInstagram } from 'react-icons/fi';
 import { FaYoutube } from 'react-icons/fa';
+import { Info } from './FooterInfo/FooterData.js';
+import './Footer.scss';
 
 export class Footer extends Component {
   render() {
@@ -43,12 +44,13 @@ export class Footer extends Component {
           </div>
           <div className="subWrapRight">
             <ul className="footerNav">
-              <li className="footerNavList">스카우트</li>
-              <li className="footerNavList">회사소개</li>
-              <li className="footerNavList">개인정보처리방침</li>
-              <li className="footerNavList">영상정보관리지침</li>
-              <li className="footerNavList">이용약관</li>
-              <li>고객센터</li>
+              {Info.map(footernav => {
+                return (
+                  <li key={footernav.id} className="footerNavList">
+                    {footernav.content}
+                  </li>
+                );
+              })}
             </ul>
             <div className="newsLetter">
               <form className="subscription">
