@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "샴푸",
+    "quantity": 3,
+    "description": "당신이 꿈꿔온 건강한 두피와 모발을 경험할 수 있도록",
+    "image_url": "https://images.unsplash.com/photo-1556229181-695df2bf2d6f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
+  },
+  {
+    "id": 2,
+    "name": "비누",
+    "quantity": 10,
+    "description": "향기를 머금은 거품으로 구석구석 꼼꼼하게",
+    "image_url": "https://images.unsplash.com/photo-1622116619033-10aef17df728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
+  },
+  {
+    "id": 3,
+    "name": "샤워젤",
+    "quantity": 3,
+    "description": "편안한 하루를 위해 향긋한 기운을 불어 넣어줄 시간",
+    "image_url": ""
+  },
+  {
+    "id": 4,
+    "name": "배쓰밤",
+    "quantity": 8,
+    "description": "찬란히 빛나는 물결에 부드럽게 몸을 맡겨 보세요",
+    "image_url": "https://images.unsplash.com/photo-1578737116602-ebedd680aeb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
+  },
+  {
+    "id": 5,
+    "name": "소품",
+    "quantity": 1,
+    "description": "향기를 담는 편리하고 즐거운 나만의 방법",
+    "image_url": "https://images.unsplash.com/photo-1577467013350-7c22a844e1a9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1954&q=80"
+  }
+]

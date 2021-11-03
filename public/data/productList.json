@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "name": "씨 메이트",
+    "sub_name": "#바다의청량감을그대로",
+    "price": "14,000",
+    "thumbnail": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+    "isNew": true,
+    "tags": ["new", "best"]
+  },
+  {
+    "id": 2,
+    "name": "망고 제스트",
+    "price": "20,000",
+    "sub_name": "#망고껍질이송송",
+    "thumbnail": "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1180&q=80",
+    "isNew": false,
+    "tags": ["new"]
+  },
+  {
+    "id": 3,
+    "name": "스노우 스파이스",
+    "price": "42,000",
+    "sub_name": "#눈송이파이한조각",
+    "thumbnail": "https://images.unsplash.com/photo-1615484477201-9f4953340fab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80",
+    "tags": []
+  },
+  {
+    "id": 4,
+    "name": "슬리피 아르간",
+    "price": "13,000",
+    "sub_name": "#상큼한충전완료",
+    "thumbnail": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80",
+    "isNew": true,
+    "tags": ["best"]
+  },
+  {
+    "id": 5,
+    "name": "카마 플라워",
+    "price": "24,000",
+    "sub_name": "#달콤한꽃향기",
+    "thumbnail": "https://images.unsplash.com/photo-1587049332298-1c42e83937a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+    "isNew": false,
+    "tags": []
+  },
+  {
+    "id": 6,
+    "name": "샌드 가디스",
+    "price": "19,000",
+    "sub_name": "#달콤한무화과가듬뿍",
+    "thumbnail": "https://images.unsplash.com/photo-1615485499978-1279c3d6302f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80",
+    "isNew": true,
+    "tags": []
+  }
+]
