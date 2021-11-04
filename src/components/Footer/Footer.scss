@@ -1,0 +1,186 @@
+.footer {
+  height: 400px;
+  padding: 55px 0;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: default;
+
+  .footerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1130px;
+    height: 100%;
+    margin: 0 auto;
+
+    .subWrapLeft {
+      display: flex;
+      flex-direction: column;
+      padding-left: 100px;
+
+      .logo {
+        width: 75px;
+      }
+
+      .customerService {
+        .csInfo {
+          padding-top: 40px;
+
+          .csName {
+            font-size: 16px;
+          }
+
+          .csNumber {
+            margin-left: 10px;
+            font-size: 16px;
+          }
+
+          .csEmail {
+            width: 150px;
+            padding-bottom: 3px;
+            margin-top: 7px;
+            border-bottom: 1px solid white;
+          }
+
+          .csTime {
+            margin-top: 7px;
+
+            .talkOperationTime {
+              margin-top: 5px;
+            }
+          }
+        }
+
+        .order {
+          margin-top: 30px;
+
+          .orderInfo {
+            font-size: 16px;
+
+            .orderNumber {
+              margin-left: 10px;
+            }
+          }
+
+          .orderEmail {
+            display: inline-block;
+            padding-bottom: 3px;
+            margin-top: 7px;
+            border-bottom: 1px solid white;
+          }
+        }
+
+        .snsIcon {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 30px;
+
+          .iconWrapper {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            background-color: #717171;
+            border-radius: 50%;
+
+            .icon {
+              position: absolute;
+              top: 9%;
+              left: 8%;
+              color: #000000;
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+
+    .subWrapRight {
+      display: flex;
+      flex-direction: column;
+
+      .footerNav {
+        display: flex;
+        flex-direction: row;
+
+        .footerNavList {
+          margin-right: 35px;
+        }
+      }
+
+      .newsLetter {
+        width: 100%;
+        margin-top: 60px;
+
+        .subscription {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          width: 450px;
+          height: 35px;
+
+          .emailInput {
+            width: 360px;
+            height: 100%;
+            padding: 5px 0 5px 15px;
+            border: white;
+            color: #717171;
+            font-size: 11px;
+            outline: none;
+          }
+
+          .subscriptionBtn {
+            width: 90px;
+            height: 100%;
+            border: 1px solid white;
+            background-color: black;
+            color: white;
+            font-size: 11px;
+            cursor: pointer;
+          }
+        }
+
+        .newsLetterUpText {
+          margin-top: 13px;
+        }
+
+        .newsLetterDownText {
+          display: inline-block;
+          margin-top: 5px;
+          margin-right: 8px;
+        }
+
+        .newsLetterPreview {
+          display: inline-block;
+          padding-bottom: 3px;
+          margin-top: 5px;
+          border-bottom: 1px solid white;
+          color: white;
+          text-decoration: none;
+        }
+      }
+
+      .companyInfo {
+        margin-top: 25px;
+        color: #9b9b9b;
+
+        .address {
+          font-size: 13px;
+        }
+
+        .bizInfo {
+          margin-top: 5px;
+          font-size: 13px;
+        }
+      }
+
+      .copyright {
+        margin-top: 25px;
+        font-size: 13px;
+        color: #9b9b9b;
+      }
+    }
+  }
+}
