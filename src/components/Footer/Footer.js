@@ -31,13 +31,13 @@ export class Footer extends Component {
               </div>
               <div className="snsIcon">
                 <div className="iconWrapper">
-                  <RiFacebookFill class="icon" />
+                  <RiFacebookFill className="icon" />
                 </div>
                 <div className="iconWrapper">
-                  <FiInstagram class="icon" />
+                  <FiInstagram className="icon" />
                 </div>
                 <div className="iconWrapper">
-                  <FaYoutube class="icon" />
+                  <FaYoutube className="icon" />
                 </div>
               </div>
             </div>
