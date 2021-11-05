@@ -2,34 +2,17 @@ import React, { Component } from 'react';
 import './ListHeader.scss';
 
 export class ListHeader extends Component {
-  constructor() {
-    super();
-    this.state = {
-      listMenu: [],
-    };
-  }
-  componentDidMount() {
-    fetch('http://localhost:3000/data/listMenu.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          listMenu: data[0],
-        });
-      });
-  }
-
   render() {
-    const { listMenu } = this.state;
+    const { menuData, menuDataDetail, product } = this.props;
+
     return (
-      <main className="listVisual">
-        <img alt="listImage" src={listMenu.image_url} />
+      <div className="listVisual">
+        <img alt="listImage" src={menuDataDetail.image_url} />
         <div className="visualText">
-          <h1>{listMenu.name}</h1>
-          <p>{listMenu.description}</p>
+          <h1>{menuDataDetail.name}</h1>
+          <p>{menuDataDetail.description}</p>
         </div>
-      </main>
+      </div>
     );
   }
 }
