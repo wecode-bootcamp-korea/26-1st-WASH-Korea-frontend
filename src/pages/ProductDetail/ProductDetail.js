@@ -61,7 +61,7 @@ export class ProductDetail extends Component {
                 <button>-</button>
               </td>
               <td>
-                <input type="text" />1
+                <input type="text" />
               </td>
               <td>
                 <button>+</button>
