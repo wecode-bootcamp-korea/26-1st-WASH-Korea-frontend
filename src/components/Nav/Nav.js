@@ -4,6 +4,7 @@ import { HiOutlineSearch } from 'react-icons/hi';
 import { HiShoppingCart } from 'react-icons/hi';
 import { FaUserCircle } from 'react-icons/fa';
 import { SubMenu } from './Components/SubMenu';
+import { MENUS, PRODUCT_SUB_MENUS } from './NavData';
 import '../Nav/Nav.scss';
 
 export default class Nav extends Component {
@@ -31,18 +32,20 @@ export default class Nav extends Component {
           </h1>
           <div className="gnbWrapper">
             <ul className="gnb">
-              {MENUS.map((menu, idx) => (
-                <li
-                  key={idx}
-                  onMouseEnter={() => {
-                    menu === '제품'
-                      ? this.onUpdateVisible(false)
-                      : this.onUpdateVisible(true);
-                  }}
-                >
-                  <Link to="/">{menu}</Link>
-                </li>
-              ))}
+              {MENUS.map((menu, idx) => {
+                const isProductMenu = !(menu === '제품');
+
+                return (
+                  <li
+                    key={idx}
+                    onMouseEnter={() => {
+                      this.onUpdateVisible(isProductMenu);
+                    }}
+                  >
+                    <Link to="/">{menu}</Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="users">
@@ -70,12 +73,3 @@ export default class Nav extends Component {
     );
   }
 }
-
-const MENUS = ['제품', '워시 소개', '매장 안내', '이벤트'];
-
-const PRODUCT_SUB_MENUS = [
-  ['샤워', '샴푸', '샤워젤', '비누', '배쓰 밤', '용품'],
-  ['바디', '바디 로션', '바디 미스트', '바디 오일', '바디 스크럽'],
-  ['페이스', '폼클렌징', '팩', '스킨', '로션'],
-  ['헤어', '헤어 에센스', '헤어 미스트', '헤어 스프레이', '드라이 샴푸'],
-];
