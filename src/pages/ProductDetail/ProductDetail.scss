@@ -3,15 +3,37 @@
   margin: 0 auto;
   margin-top: 150px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+
   .productThumbnail {
     img {
-      width: 560px;
+      width: 500px;
     }
   }
   .productInfo {
-    bak .categoryFiltering {
-      display: block;
+    width: 600px;
+    height: 20px;
+    text-align: center;
+    label {
+      padding: 0 10px;
+    }
+    select {
+      width: 120px;
+      padding: 1px 10px;
+      text-indent: 5px;
+      border: 1px solid rgb(204, 204, 204);
+    }
+    .categoryFiltering {
+      width: 100%;
+    }
+  }
+  .productName {
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    p {
+      padding: 5px 0;
     }
   }
 }

@@ -33,7 +33,7 @@ export class ProductDetail extends Component {
               <label htmlFor="categoryName"> &gt; </label>
               <select name="categoryName" id="categoryName">
                 <option value="shower">샴푸</option>
-                <option value="body">비누</option>
+                <option value="body">비누</option>d
                 <option value="face">샤워젤</option>
                 <option value="hair">배쓰 밤</option>
                 <option value="supplies">용품</option>
@@ -45,37 +45,39 @@ export class ProductDetail extends Component {
             <p>#샴푸바 #풍성한 거품 </p>
           </div>
           <table className="product">
-            <tr className="productPrice">
-              <td>
-                판매가 <span>₩52,000</span>
-              </td>
-            </tr>
-            <tr className="productWeight">
-              <td>
-                상품무게 <span>100g</span>
-              </td>
-            </tr>
-            <tr className="productQuantity">
-              <td>구매수량</td>
-              <td>
-                <button>-</button>
-              </td>
-              <td>
-                <input type="text" />
-              </td>
-              <td>
-                <button>+</button>
-              </td>
-              <td>₩52,000</td>
-            </tr>
-            <tr>
-              <td>
-                총 제품 금액 <span>₩52,000</span>
-              </td>
-              <td>
-                총 합계 금액 <span>₩52,000</span>
-              </td>
-            </tr>
+            <thead />
+            <tbody>
+              <tr className="productPrice">
+                <td>
+                  판매가 <span>₩52,000</span>
+                </td>
+              </tr>
+              <tr className="productWeight">
+                <td>
+                  상품무게 <span>100g</span>
+                </td>
+              </tr>
+              <tr className="productQuantity">
+                <td>구매수량</td>
+                <td>
+                  <button>-</button>
+                </td>
+                <td>1</td>
+                <td>
+                  <button>+</button>
+                </td>
+                <td>₩52,000</td>
+              </tr>
+              <tr>
+                <td>
+                  총 제품 금액 <span>₩52,000</span>
+                </td>
+                <td>
+                  총 합계 금액 <span>₩52,000</span>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot />
           </table>
           <button className="cartButton">장바구니</button>
           <button className="ordertButton">주문하기</button>
