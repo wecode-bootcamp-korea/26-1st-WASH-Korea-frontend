@@ -115,11 +115,11 @@ export class ProductDetail extends Component {
               </h2>
               <img
                 src="https://images.unsplash.com/photo-1603533626214-9530d6fbfacf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80"
-                alt="soap detail image"
+                alt="soap detail"
               />
               <img
                 src="https://images.unsplash.com/photo-1607006483702-289fb2c18218?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                alt="soap detail image"
+                alt="soap detail"
               />
               <p>
                 신선한 레몬에 경쾌함을 더해 줄 레몬 머틀을 더했습니다.
