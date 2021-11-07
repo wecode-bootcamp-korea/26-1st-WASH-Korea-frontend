@@ -1,39 +1,272 @@
+@import '../../styles/variables.scss';
+
+$subColor: rgb(204, 204, 204);
+$subFontColor: #777;
+
 .productDetail {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   margin-top: 150px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 
   .productThumbnail {
     img {
-      width: 500px;
+      display: block;
+      width: 460px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
+
   .productInfo {
-    width: 600px;
-    height: 20px;
-    text-align: center;
-    label {
-      padding: 0 10px;
-    }
-    select {
-      width: 120px;
-      padding: 1px 10px;
-      text-indent: 5px;
-      border: 1px solid rgb(204, 204, 204);
-    }
+    width: 540px;
+
     .categoryFiltering {
       width: 100%;
+
+      label {
+        padding: 0 10px;
+      }
+
+      select {
+        width: 120px;
+        padding: 1px 10px;
+        text-indent: 5px;
+        border: 0.5px solid $subColor;
+      }
+    }
+
+    .productName {
+      h2 {
+        margin-top: 50px;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      p {
+        padding: 10px 0;
+        color: $subFontColor;
+        margin-bottom: 20px;
+      }
+    }
+
+    .productTable {
+      width: 95%;
+      border-top: 0.5px solid $subColor;
+      border-bottom: 0.5px solid $subColor;
+      margin-bottom: 20px;
+
+      tbody {
+        tr {
+          td {
+            height: 60px;
+            line-height: 60px;
+            padding: 0 5px;
+          }
+
+          .emPrice {
+            font-weight: 500;
+            font-size: 1.125rem;
+            letter-spacing: -0.6px;
+          }
+
+          .countButton {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            border: 0.5px solid $subColor;
+            margin-bottom: 15px;
+            height: 40px;
+            line-height: 40px;
+
+            button {
+              font-size: 1.5rem;
+              border: none;
+              background: none;
+              cursor: pointer;
+            }
+          }
+        }
+        .productQuantity {
+          td {
+            &:last-child {
+              text-indent: 10px;
+              font-weight: 500;
+              letter-spacing: -0.6px;
+            }
+          }
+        }
+      }
+    }
+    .totalPrice {
+      width: 510px;
+      p {
+        text-align: right;
+        line-height: 40px;
+        font-size: 1.325rem;
+        // margin-right: 20px;
+        span {
+          font-weight: 600;
+          font-size: 1.5rem;
+          padding-left: 10px;
+        }
+      }
     }
   }
-  .productName {
+}
+
+.productButton {
+  width: 1100px;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: right;
+
+  button {
+    width: 250px;
+    height: 50px;
+    border: none;
+  }
+  .cartButton {
+    background-color: #fff;
+    margin-right: 10px;
+    border: 1px solid #000;
+  }
+  .orderButton {
+    background-color: #000;
+    color: #fff;
+    margin-right: 20px;
+  }
+}
+
+.productContent {
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 100px;
+  color: #000;
+
+  .tabMenu {
+    .tabButton {
+      ul {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        display: flex;
+        li {
+          width: 33.33%;
+          border: 1px solid $subColor;
+          border-bottom: 1px solid #000;
+          a {
+            width: 100%;
+            color: $subFontColor;
+          }
+        }
+        li + li {
+          border-left: 0;
+        }
+
+        .activeTabMenu {
+          border: 1px solid #000;
+          border-bottom: none;
+
+          a {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+  .productDetailContents {
+    margin-top: 100px;
+    .productDetaiDescription {
+      text-align: center;
+      margin-bottom: 100px;
+      h2 {
+        text-align: center;
+        font-weight: bold;
+        font-size: 2rem;
+        span {
+          display: block;
+          font-size: 1.25rem;
+          padding: 15px;
+          color: $subFontColor;
+        }
+      }
+      img {
+        margin-top: 50px;
+        height: 600px;
+      }
+      p {
+        margin-top: 25px;
+        font-size: 1.125rem;
+        line-height: 2;
+        .productTagName {
+          color: green;
+          margin: 20px 0;
+        }
+      }
+    }
+  }
+  .productReviews {
     h2 {
+      height: 100px;
+      line-height: 140px;
+      font-weight: bold;
       font-size: 1.75rem;
-      font-weight: 700;
+      span {
+        font-size: 1.25rem;
+        font-weight: normal;
+        padding-left: 20px;
+      }
     }
     p {
-      padding: 5px 0;
+      font-size: 1.25rem;
+      padding-bottom: 20px;
+    }
+    .CommentsForm {
+      textarea {
+        width: 100%;
+        border: 1px solid $subColor;
+        padding: 20px;
+        &:focus {
+          outline: $subColor;
+        }
+      }
+      .commentButton {
+        width: 100%;
+        height: 60px;
+        border: 0.5px solid $subColor;
+        border-top: none;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+
+        .photoReviewButton {
+          color: $subColor;
+          .photoReview {
+            width: 50px;
+            height: 40px;
+            margin-top: 10px;
+            margin-left: 10px;
+          }
+        }
+        .writeCommentButton {
+          background: $fontColor;
+          border: 1px solid $bgColor;
+          width: 140px;
+          height: 100%;
+          font-weight: 600;
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+  .productDelivery {
+    padding: 30px;
+    p {
+      line-height: 1.5;
     }
   }
 }
