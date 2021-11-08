@@ -3,7 +3,7 @@ import './ListHeader.scss';
 
 export class ListHeader extends Component {
   render() {
-    const { menuData, menuDataDetail, product } = this.props;
+    const { menuDataDetail } = this.props;
 
     return (
       <div className="listVisual">

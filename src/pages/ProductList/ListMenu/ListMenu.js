@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { CATEGORY } from './ListMenuData';
 import './ListMenu.scss';
 
 export class ListMenu extends Component {
+  changeCategory = id => {
+    this.props.changeMenu(id);
+  };
+
   render() {
-    const { productData, menuDataDetail, menuData } = this.props;
+    const { menuDataDetail, menuData } = this.props;
 
     return (
       <article className="listMenu">
@@ -14,13 +17,12 @@ export class ListMenu extends Component {
             <option value="추천순">추천순</option>
             <option value="낮은가격순">낮은가격순</option>
             <option value="높은가격순">높은가격순</option>
-            <option value="신제품순">신제품순</option>
           </select>
         </div>
         <ul className="listCategory">
-          {CATEGORY.map((menu, i) => {
+          {menuData.map(menu => {
             return (
-              <li key={i}>
+              <li key={menu.id} onClick={() => this.changeCategory(menu.id)}>
                 {menu.name} ({menu.quantity})
               </li>
             );

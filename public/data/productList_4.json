@@ -1,0 +1,30 @@
+{
+  "result": [
+    {
+      "id": 1,
+      "name": "슬리피 아르간",
+      "sub_name": "#상큼한충전완료 #샤워젤",
+      "price": "13000",
+      "product_image": "https://images.unsplash.com/photo-1528821128474-27f963b062bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80",
+      "isNew": true,
+      "tags": ["best"],
+      "category": "배쓰밤",
+      "description": "향기를 담는 편리하고 즐거운 나만의 방법",
+      "image_url": "https://images.unsplash.com/photo-1577467013350-7c22a844e1a9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1954&q=80",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "카마 플라워",
+      "sub_name": "#달콤한꽃향기 #샤워젤",
+      "price": "24000",
+      "product_image": "https://images.unsplash.com/photo-1587049332298-1c42e83937a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+      "isNew": false,
+      "tags": [],
+      "category": "배쓰밤",
+      "description": "찬란히 빛나는 물결에 부드럽게 몸을 맡겨 보세요",
+      "image_url": "https://images.unsplash.com/photo-1578737116602-ebedd680aeb9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80",
+      "quantity": 8
+    }
+  ]
+}

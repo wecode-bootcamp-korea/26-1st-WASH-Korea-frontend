@@ -14,6 +14,25 @@ export class ProductList extends Component {
     };
   }
 
+  changeMenu = valueId => {
+    fetch(`/data/productList_${valueId}.json`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          product: data.result,
+        });
+      });
+
+    fetch('/data/listMenu.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          menuList: data,
+          menuListDetail: data[valueId - 1],
+        });
+      });
+  };
+
   componentDidMount() {
     fetch('/data/listMenu.json')
       .then(res => res.json())
@@ -24,38 +43,25 @@ export class ProductList extends Component {
         });
       });
 
-    fetch('/data/productList.json')
+    fetch('/data/productList_1.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          product: data,
+          product: data.result,
         });
       });
   }
-
-  //   fetch('http://10.58.2.138:8000/main/products')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         product: data.results,
-  //       });
-  //     });
-  // }
 
   render() {
     const { menuList, product, menuListDetail } = this.state;
 
     return (
       <div className="productList">
-        <ListHeader
-          menuData={menuList}
-          productData={product}
-          menuDataDetail={menuListDetail}
-        />
+        <ListHeader menuDataDetail={menuListDetail} />
         <ListMenu
-          productData={product}
           menuDataDetail={menuListDetail}
           menuData={menuList}
+          changeMenu={this.changeMenu}
         />
         <div className="products">
           <ul className="productSpace">
