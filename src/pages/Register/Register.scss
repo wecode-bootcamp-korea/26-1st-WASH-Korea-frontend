@@ -1,0 +1,105 @@
+@import '../../styles/variables.scss';
+
+.register {
+  height: 1180px;
+
+  .registerBox {
+    width: 1080px;
+    margin: 0 auto;
+    padding-top: 100px;
+
+    .header {
+      padding: 90px 0 50px 0;
+
+      .joinUs {
+        font-size: 42px;
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 1px;
+        -webkit-text-stroke: 2px;
+      }
+
+      .inputInfo {
+        padding: 40px 0;
+        font-size: 16px;
+        font-weight: 900;
+        text-align: center;
+      }
+    }
+    .titleBar {
+      @include flexSpaceBtw;
+      align-items: center;
+      padding: 20px 0;
+      margin-bottom: 30px;
+      border-bottom: solid black 1px;
+
+      .title {
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .titleRight {
+        display: flex;
+        align-content: center;
+        font-size: 14px;
+
+        .smallSquare {
+          color: #bb192e;
+        }
+      }
+    }
+    .formList {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 30px;
+      border-bottom: 1px solid lightgray;
+
+      .subTitle {
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px 0;
+
+        &:nth-child(5),
+        &:nth-child(8) {
+          text-indent: 14px;
+        }
+
+        .inputTitle {
+          display: flex;
+          align-items: center;
+          width: 155px;
+          height: 40px;
+          .smallSquare {
+            color: #bb192e;
+          }
+        }
+
+        .inputSquareNone {
+          padding-left: 14px;
+        }
+
+        .text {
+          width: 400px;
+          padding: 0 10px;
+          border: 1px solid lightgray;
+        }
+      }
+    }
+
+    .registerBtnWrapper {
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+
+      .registerBtn {
+        width: 280px;
+        height: 63px;
+        border: none;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+}

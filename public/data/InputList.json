@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "name": "userID",
+    "content": "아이디",
+    "inputType": "text",
+    "isNecessary": true,
+    "value": ""
+  },
+  {
+    "id": 2,
+    "name": "password",
+    "content": "비밀번호",
+    "inputType": "password",
+    "isNecessary": true
+  },
+  {
+    "id": 3,
+    "name": "rePassword",
+    "content": "비밀번호 확인",
+    "inputType": "password",
+    "isNecessary": true
+  },
+  {
+    "id": 4,
+    "name": "name",
+    "content": "이름",
+    "inputType": "text",
+    "isNecessary": true
+  },
+  {
+    "id": 5,
+    "name": "nickname",
+    "content": "닉네임",
+    "inputType": "text",
+    "isNecessary": false
+  },
+  {
+    "id": 6,
+    "name": "email",
+    "content": "이메일",
+    "inputType": "email",
+    "isNecessary": true
+  },
+  {
+    "id": 7,
+    "name": "contact",
+    "content": "휴대폰번호",
+    "inputType": "text",
+    "isNecessary": true,
+    "placeholder": "- 없이 입력하세요."
+  },
+  {
+    "id": 8,
+    "name": "address",
+    "content": "주소",
+    "inputType": "text",
+    "isNecessary": false
+  }
+]
