@@ -2,26 +2,10 @@ import React from 'react';
 import './Inputs.scss';
 
 export class Inputs extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      value: '',
-    };
-  }
-
   inputHandle = e => {
-    const { value } = e.target;
-    const { temp } = this.props;
-    this.setState({
-      value: value,
-    });
-    temp(e);
+    const { distributeValueToKey } = this.props;
+    distributeValueToKey(e);
   };
-
-  // checkEmail = e => {
-  //   const { checkEmail } = this.props;
-  //   checkEmail(e);
-  // };
 
   render() {
     const { isNecessary, content, name, value, inputType, placeholder } =
@@ -39,7 +23,6 @@ export class Inputs extends React.Component {
           type={inputType}
           placeholder={placeholder}
           onChange={this.inputHandle}
-          // onKeyUp={this.checkEmail}
         />
       </div>
     );

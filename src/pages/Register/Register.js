@@ -41,23 +41,27 @@ export class Register extends Component {
         contact: contact,
         address: address,
       }),
-    })
-      .then(res => res.json())
-      .then(result => console.log('결과: ', result.ACCESS_TOKEN));
+    }).then(res => res.json());
+    // .then(result => if(result === "invaild"){alert("snow")}console.log('결과: ', result.ACCESS_TOKEN));
   };
 
-  temp = e => {
+  distributeValueToKey = e => {
+    const { name, value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+    // this.validateId();
+    this.validatePw(e);
+    // this.validateEmail(e);
   };
 
-  // checkEmail = e => {
-  //   console.log('checkemail >>> ', e);
-  //   this.setState({
-  //     email: e.target.value,
-  //   });
-  // };
+  validatePw = e => {
+    const regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+    if (e.target.name === 'email') {
+      return regExp.test(e.target.name) ? true : false;
+    }
+    console.log(regExp.test(e.target.value));
+  };
 
   goToMain = () => {
     const { history } = this.props;
@@ -66,7 +70,6 @@ export class Register extends Component {
 
   render() {
     const { inputList } = this.state;
-    // const checkEmailValidation = email.includes('@') && email.includes('.');
     return (
       <main className="register">
         <div className="registerBox">
@@ -91,8 +94,7 @@ export class Register extends Component {
                   inputType={input.inputType}
                   isNecessary={input.isNecessary}
                   placeholder={input.placeholder}
-                  temp={this.temp}
-                  // checkEmail={this.checkEmail}
+                  distributeValueToKey={this.distributeValueToKey}
                 />
               );
             })}
