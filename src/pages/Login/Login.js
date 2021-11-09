@@ -11,23 +11,16 @@ export class Login extends Component {
     };
   }
 
-  updateIdValue = e => {
-    const { value } = e.target;
+  updateLoginValue = e => {
+    const { name, value } = e.target;
     this.setState({
-      idValue: value,
-    });
-  };
-
-  updatePwValue = e => {
-    const { value } = e.target;
-    this.setState({
-      pwValue: value,
+      [name]: value,
     });
   };
 
   submitLoginForm = () => {
     const { idValue, pwValue } = this.state;
-    fetch('http://10.58.2.138:8000/signin', {
+    fetch('http://10.58.2.138:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
         user_name: idValue,
@@ -35,7 +28,13 @@ export class Login extends Component {
       }),
     })
       .then(res => res.json())
-      .then(result => console.log('결과: ', result.ACCESS_TOKEN));
+      .then(result => {
+        if (result.message === 'USER_DOES_NOT_EXISTS') {
+          alert('아이디 혹은 비밀번호를 다시 확인해주세요.');
+        } else {
+          this.goToMain();
+        }
+      });
   };
 
   goToMain = () => {
@@ -52,15 +51,17 @@ export class Login extends Component {
             <form className="input">
               <input
                 className="inputId"
+                name="idValue"
                 type="text"
                 placeholder="아이디"
-                onChange={this.updateIdValue}
+                onChange={this.updateLoginValue}
               />
               <input
                 className="inputPw"
+                name="pwValue"
                 type="password"
                 placeholder="비밀번호"
-                onChange={this.updatePwValue}
+                onChange={this.updateLoginValue}
               />
             </form>
           </div>
@@ -79,8 +80,8 @@ export class Login extends Component {
             <Link to="/register">
               <button className="registerButton">회원가입</button>
             </Link>
-            <button className="findLoginInfo">아이디 찾기</button>
-            <button className="findLoginInfo">비밀번호 찾기</button>
+            <button className="findId">아이디 찾기</button>
+            <button className="findPw">비밀번호 찾기</button>
           </div>
         </div>
       </main>
