@@ -1,4 +1,4 @@
-.listVisual {
+.listHeader {
   position: relative;
   height: 500px;
   margin-top: 100px;
@@ -21,12 +21,12 @@
       font-size: 68px;
       font-weight: bold;
       letter-spacing: 40px;
-      text-indent: 40px; //letter-spacing 사용했을 때 중앙정렬으로 맞춰주기
+      text-indent: 40px;
     }
 
     p {
       padding-top: 20px;
-      white-space: nowrap; //글자 줄바꿈 처리 없애기
+      white-space: nowrap;
       font-size: 26px;
       letter-spacing: 0.2em;
     }

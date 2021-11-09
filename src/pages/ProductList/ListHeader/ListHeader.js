@@ -3,14 +3,14 @@ import './ListHeader.scss';
 
 export class ListHeader extends Component {
   render() {
-    const { menuDataDetail } = this.props;
+    const { listHeader } = this.props;
 
     return (
-      <div className="listVisual">
-        <img alt="listImage" src={menuDataDetail.image_url} />
+      <div className="listHeader">
+        <img alt="listImage" src={listHeader.image} />
         <div className="visualText">
-          <h1>{menuDataDetail.name}</h1>
-          <p>{menuDataDetail.description}</p>
+          <h1>{listHeader.name}</h1>
+          <p>{listHeader.description}</p>
         </div>
       </div>
     );

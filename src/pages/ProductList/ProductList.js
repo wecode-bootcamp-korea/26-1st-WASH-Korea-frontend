@@ -8,64 +8,62 @@ export class ProductList extends Component {
   constructor() {
     super();
     this.state = {
-      menuList: [],
       product: [],
-      menuListDetail: {},
+      header: {},
+      category: {},
+      subCategory: [],
     };
   }
 
-  changeMenu = valueId => {
-    fetch(`/data/productList_${valueId}.json`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          product: data.result,
+  componentDidUpdate(prevProps) {
+    if (this.props.location.search !== prevProps.location.search) {
+      fetch(
+        `http://10.58.2.138:8000/products/productlist${this.props.location.search}`
+      )
+        .then(res => res.json())
+        .then(data => {
+          this.setState({
+            product: data.results.data,
+            header: data.results.products_header,
+          });
         });
-      });
-
-    fetch('/data/listMenu.json')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          menuList: data,
-          menuListDetail: data[valueId - 1],
-        });
-      });
-  };
+    }
+  }
 
   componentDidMount() {
-    fetch('/data/listMenu.json')
+    fetch('http://10.58.2.138:8000/products/productlist?category=1')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          menuList: data,
-          menuListDetail: data[0],
+          product: data.results.data,
+          header: data.results.products_header,
         });
       });
 
-    fetch('/data/productList_1.json')
+    fetch('http://10.58.2.138:8000/categories/1')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          product: data.result,
+          category: data.results,
+          subCategory: data.results.subcategories,
         });
       });
   }
 
   render() {
-    const { menuList, product, menuListDetail } = this.state;
+    const { product, header, category, subCategory } = this.state;
 
     return (
       <div className="productList">
-        <ListHeader menuDataDetail={menuListDetail} />
+        <ListHeader listHeader={header} />
         <ListMenu
-          menuDataDetail={menuListDetail}
-          menuData={menuList}
-          changeMenu={this.changeMenu}
+          menuCategory={category}
+          menuSubCategory={subCategory}
+          listHeader={header}
         />
         <div className="products">
           <ul className="productSpace">
-            <Product productData={product} />
+            <Product listProduct={product} />
           </ul>
         </div>
       </div>

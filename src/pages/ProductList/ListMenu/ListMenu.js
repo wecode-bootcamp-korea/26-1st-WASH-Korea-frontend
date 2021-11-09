@@ -1,29 +1,60 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import SELECT from './ListMenuSort';
 import './ListMenu.scss';
 
 export class ListMenu extends Component {
-  changeCategory = id => {
-    this.props.changeMenu(id);
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  selectChange = select => {
+    select.target.value === 'sortBasic' && console.log('sortBasic');
+    select.target.value === 'sortHigh' && console.log('sortHigh');
+    select.target.value === 'sortLow' && console.log('sortLow');
+  };
+
+  changeCategory = (value, id) => {
+    value === 'Category'
+      ? this.props.history.push(`/productlist?category=${id}`)
+      : this.props.history.push(`/productlist?category=1&sub_category=${id}`);
   };
 
   render() {
-    const { menuDataDetail, menuData } = this.props;
+    const { menuCategory, menuSubCategory, listHeader } = this.props;
 
     return (
       <article className="listMenu">
         <div className="listTitle">
-          <h2>{menuDataDetail.name}</h2>
-          <select name="sort">
-            <option value="추천순">추천순</option>
-            <option value="낮은가격순">낮은가격순</option>
-            <option value="높은가격순">높은가격순</option>
+          <h2>{listHeader.name}</h2>
+          <select onChange={this.selectChange}>
+            {SELECT.map(menu => {
+              return (
+                <option key={menu.id} value={menu.value}>
+                  {menu.name}
+                </option>
+              );
+            })}
           </select>
         </div>
         <ul className="listCategory">
-          {menuData.map(menu => {
+          <li
+            onClick={() =>
+              this.changeCategory('Category', menuCategory.category_id)
+            }
+          >
+            전체 ({menuCategory.count})
+          </li>
+          {menuSubCategory.map(menu => {
             return (
-              <li key={menu.id} onClick={() => this.changeCategory(menu.id)}>
-                {menu.name} ({menu.quantity})
+              <li
+                key={menu.sub_category_id}
+                onClick={() =>
+                  this.changeCategory('SubCategory', menu.sub_category_id)
+                }
+              >
+                {menu.name} ({menu.count})
               </li>
             );
           })}
@@ -33,4 +64,4 @@ export class ListMenu extends Component {
   }
 }
 
-export default ListMenu;
+export default withRouter(ListMenu);
