@@ -6,7 +6,6 @@
     "inputType": "text",
     "isNecessary": true,
     "isValid": false,
-    "errorMesseage": "아이디를 6글자입니다.@가 입력되지않았습니다.",
     "value": ""
   },
   {

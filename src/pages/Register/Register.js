@@ -57,10 +57,14 @@ export class Register extends Component {
 
   validatePw = e => {
     const regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    if (e.target.name === 'email') {
-      return regExp.test(e.target.name) ? true : false;
+    if (e.target.name === 'password') {
+      const testPw = regExp.test(e.target.name);
+      return !testPw ? false : true;
     }
-    console.log(regExp.test(e.target.value));
+    this.setState({
+      password: '',
+    });
+    console.log(regExp.test(e.target.name));
   };
 
   goToMain = () => {
