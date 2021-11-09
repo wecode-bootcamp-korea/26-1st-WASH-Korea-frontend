@@ -55,16 +55,21 @@ export class Register extends Component {
     // this.validateEmail(e);
   };
 
-  validatePw = e => {
-    const regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    if (e.target.name === 'password') {
-      const testPw = regExp.test(e.target.name);
-      return !testPw ? false : true;
+  validatePw = () => {
+    const { password } = this.state;
+    const pwRegExp =
+      /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+    const afterPwTest = pwRegExp.test(password);
+    if (afterPwTest === false) {
+      return false;
+    } else {
+      return true;
     }
-    this.setState({
-      password: '',
-    });
-    console.log(regExp.test(e.target.name));
+  };
+
+  checkValidation = name => {
+    if (name === 'password') {
+    }
   };
 
   goToMain = () => {
@@ -99,6 +104,7 @@ export class Register extends Component {
                   isNecessary={input.isNecessary}
                   placeholder={input.placeholder}
                   distributeValueToKey={this.distributeValueToKey}
+                  // checkValidation={this.checkValidation}
                 />
               );
             })}

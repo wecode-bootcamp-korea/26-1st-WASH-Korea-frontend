@@ -10,6 +10,7 @@ export class Inputs extends React.Component {
   render() {
     const { isNecessary, content, name, value, inputType, placeholder } =
       this.props;
+    // const isValid = checkValidation(name);
     return (
       <div className="subTitle">
         <div className="inputTitle">
@@ -24,6 +25,7 @@ export class Inputs extends React.Component {
           placeholder={placeholder}
           onChange={this.inputHandle}
         />
+        {/* {!isValid && <span>정확한 값을 입력해주세요</span>} */}
       </div>
     );
   }
