@@ -1,0 +1,94 @@
+.login {
+  .loginBox {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 750px;
+    padding-top: 150px;
+    margin: 0 auto;
+
+    .title {
+      padding: 90px 0 20px 0;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .inputBox {
+      width: 335px;
+      margin: 55px auto 0 auto;
+
+      .input {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 110px;
+
+        .inputId {
+          width: 100%;
+          height: 48px;
+          font-size: 16px;
+          text-align: center;
+        }
+
+        .inputPw {
+          width: 100%;
+          height: 48px;
+          font-size: 16px;
+          text-align: center;
+        }
+      }
+    }
+
+    .checkBox {
+      display: flex;
+      width: 335px;
+      margin: 20px auto;
+
+      label {
+        color: gray;
+        font-size: 14px;
+      }
+    }
+
+    .loginButton {
+      width: 335px;
+      height: 53px;
+      margin: 0 auto;
+      border: none;
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .loginMenu {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      cursor: pointer;
+
+      .registerButton {
+        border: none;
+        background-color: white;
+        color: gray;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .findId,
+      .findPw {
+        padding-left: 8px;
+        margin-left: 5px;
+        border: none;
+        border-left: 1px solid gray;
+        background-color: white;
+        color: gray;
+        font-size: 13px;
+        cursor: pointer;
+      }
+    }
+  }
+}
