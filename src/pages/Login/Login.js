@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { API } from '../../config';
 import './Login.scss';
 
 export class Login extends Component {
@@ -20,7 +21,7 @@ export class Login extends Component {
 
   submitLoginForm = () => {
     const { idValue, pwValue } = this.state;
-    fetch('http://10.58.2.138:8000/users/login', {
+    fetch(`${API}/users/login`, {
       method: 'POST',
       body: JSON.stringify({
         user_name: idValue,
