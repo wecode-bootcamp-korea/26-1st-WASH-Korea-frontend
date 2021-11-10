@@ -17,6 +17,10 @@
     select {
       width: 110px;
       height: 30px;
+
+      &::selection {
+        background-color: black;
+      }
     }
   }
 

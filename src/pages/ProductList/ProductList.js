@@ -16,10 +16,9 @@ export class ProductList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.location.search !== prevProps.location.search) {
-      fetch(
-        `http://10.58.2.138:8000/products/productlist${this.props.location.search}`
-      )
+    const { location } = this.props;
+    if (location.search !== prevProps.location.search) {
+      fetch(`http://10.58.2.138:8000/products/productlist${location.search}`)
         .then(res => res.json())
         .then(data => {
           this.setState({
@@ -31,7 +30,12 @@ export class ProductList extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.2.138:8000/products/productlist?category=1')
+    const { location } = this.props;
+    fetch(
+      `http://10.58.2.138:8000/products/productlist${
+        location.search || '?category=1'
+      }`
+    )
       .then(res => res.json())
       .then(data => {
         this.setState({

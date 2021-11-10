@@ -10,15 +10,27 @@ export class ListMenu extends Component {
   }
 
   selectChange = select => {
-    select.target.value === 'sortBasic' && console.log('sortBasic');
-    select.target.value === 'sortHigh' && console.log('sortHigh');
-    select.target.value === 'sortLow' && console.log('sortLow');
+    const { location, history } = this.props;
+    const paramsString = new URLSearchParams(location.search);
+
+    if (select.target.value === 'sortBasic') {
+      paramsString.delete('sort');
+    } else if (select.target.value === 'sortHigh') {
+      paramsString.delete('sort');
+      paramsString.append('sort', '-price');
+    } else if (select.target.value === 'sortLow') {
+      paramsString.delete('sort');
+      paramsString.append('sort', 'price');
+    }
+    history.push(`/productlist?${paramsString.toString()}`);
   };
 
   changeCategory = (value, id) => {
+    const { history } = this.props;
+
     value === 'Category'
-      ? this.props.history.push(`/productlist?category=${id}`)
-      : this.props.history.push(`/productlist?category=1&sub_category=${id}`);
+      ? history.push(`/productlist?category=${id}`)
+      : history.push(`/productlist?category=1&sub_category=${id}`);
   };
 
   render() {
@@ -28,7 +40,7 @@ export class ListMenu extends Component {
       <article className="listMenu">
         <div className="listTitle">
           <h2>{listHeader.name}</h2>
-          <select onChange={this.selectChange}>
+          <select defaultValue="기본순" onChange={this.selectChange}>
             {SELECT.map(menu => {
               return (
                 <option key={menu.id} value={menu.value}>
