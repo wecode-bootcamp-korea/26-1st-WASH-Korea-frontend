@@ -66,7 +66,7 @@ $subFontColor: #777;
             padding: 0 5px;
           }
 
-          .emPrice {
+          .emphasizePrice {
             font-weight: 500;
             font-size: 1.125rem;
             letter-spacing: -0.6px;
@@ -88,7 +88,15 @@ $subFontColor: #777;
             }
           }
         }
+        .productPrice {
+          width: 16%;
+        }
+        .productWeight {
+          width: 28%;
+        }
         .productQuantity {
+          width: 56%;
+
           td {
             &:last-child {
               text-indent: 10px;

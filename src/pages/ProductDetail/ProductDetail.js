@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProductThumbnail from './ProductThumbnail/ProductThumbnail';
-import ProductInfo from './ProductInfo/ProductInfo';
+import ProductInformation from './ProductInformation/ProductInformation';
 import ProductButton from './ProductButton/ProductButton';
 import ProductContent from './ProductContent/ProductContent';
 import './ProductDetail.scss';
@@ -10,18 +10,27 @@ export class ProductDetail extends Component {
     super(props);
     this.state = {
       quantity: 1,
-      details: [],
+      details: {},
     };
   }
-  componentDidMount() {
-    fetch(`http://localhost:3000/productDetails/${this.props.match.params.id}`)
+
+  getData = () => {
+    const id = this.props.match.params.id;
+    fetch(`http://10.58.2.138:8000/products/${id}`)
       .then(res => res.json())
-      .then(data => {
-        this.setState({
-          details: data.result,
-        });
-      });
+      .then(res => this.setState({ details: res.result }));
+  };
+
+  componentDidMount() {
+    this.getData();
   }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.math.params.id !== this.props.match.params.id) {
+  //     this.getData();
+  //   }
+  // }
+
   countUpQunatity = () => {
     const { quantity } = this.state;
     this.setState({
@@ -37,27 +46,22 @@ export class ProductDetail extends Component {
   };
 
   render() {
-    const { quantity } = this.state;
-    const {
-      id,
-      price,
-      productImage,
-      productName,
-      subName,
-      weight,
-      description,
-    } = this.props;
-    return (
+    const { quantity, details } = this.state;
+    const { id, name, price, product_image, sub_name, weight, description } =
+      details;
+
+    return id ? (
       <>
         <section className="productDetail">
-          <ProductThumbnail productImage={productImage} />
-          <ProductInfo
+          <ProductThumbnail productImage={product_image} />
+          <ProductInformation
             id={id}
             price={price}
-            productImage={productImage}
-            productName={productName}
-            subName={subName}
+            productImage={product_image}
+            productName={name}
+            subName={sub_name}
             weight={weight}
+            description={description}
             quantity={quantity}
             countUpQunatity={this.countUpQunatity}
             countDownQuantity={this.countDownQuantity}
@@ -66,9 +70,9 @@ export class ProductDetail extends Component {
 
         <ProductButton />
 
-        <ProductContent productName={productName} description={description} />
+        <ProductContent productName={name} description={description} />
       </>
-    );
+    ) : null;
   }
 }
 

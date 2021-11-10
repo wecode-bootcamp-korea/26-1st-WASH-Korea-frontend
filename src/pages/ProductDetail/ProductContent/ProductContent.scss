@@ -10,6 +10,8 @@ $subFontColor: #777;
   color: #000;
 
   .tabMenu {
+    cursor: pointer;
+
     .tabButton {
       ul {
         display: flex;

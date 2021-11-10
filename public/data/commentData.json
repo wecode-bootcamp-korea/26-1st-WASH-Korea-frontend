@@ -1,0 +1,33 @@
+{
+  "results": {
+    "message": [
+      {
+        "product_id": 1,
+        "product_name": "레몬 코 워시",
+        "image": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg",
+        "content": "너무좋아요 !!!  ",
+        "rating": 5,
+        "user": 1,
+        "user_name": "kek0919"
+      },
+      {
+        "content": "너무좋아요 !!!  ",
+        "image": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg",
+        "product_id": 1,
+        "product_name": "레몬 코 워시",
+        "rating": 5,
+        "user": 1,
+        "user_name": "kek0919"
+      },
+      {
+        "content": "너무좋아요 !!!  ",
+        "image": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg",
+        "product_id": 1,
+        "product_name": "레몬 코 워시",
+        "rating": 5,
+        "user": 1,
+        "user_name": "kek0919"
+      }
+    ]
+  }
+}

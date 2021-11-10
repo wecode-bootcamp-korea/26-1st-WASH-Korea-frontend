@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { IoMdCamera } from 'react-icons/io';
 import TabMenu from '../TabMenu/TabMenu';
 import ProductDetailTexts from './ProductDetailTexts';
+import ProductCommentLists from './ProductCommentList/ProductCommentLists';
 import './ProductContent.scss';
 
 export class ProductContent extends Component {
@@ -32,10 +31,9 @@ export class ProductContent extends Component {
           goToDeliveryTab={() => {
             this.goToTabMenu(this.tabMenuDelivery);
           }}
-          datae-idx="1"
         />
 
-        <div className="productDetailContents">
+        <div className="productDetailContents" ref={this.tabMenuDescription}>
           <ProductDetailTexts
             productName={productName}
             subName={subName}
@@ -52,28 +50,15 @@ export class ProductContent extends Component {
             goToDeliveryTab={() => {
               this.goToTabMenu(this.tabMenuDelivery);
             }}
-            datae-idx="2"
           />
 
           <div className="productReviews" ref={this.tabMenuReview}>
             <h2>
-              Product Reviews <span>★★★★★ 1</span>
+              Product Reviews <span>★★★★★ 0</span>
             </h2>
             <p>나만의 꿀팁이나 제품을 사용하는 생생한 모습을 보여주세요!</p>
-            <form className="CommentsForm">
-              <textarea
-                name="comments"
-                className="comments"
-                cols="30"
-                rows="15"
-              />
-              <div className="commentButton">
-                <Link to="/" className="photoReviewButton">
-                  <IoMdCamera className="photoReview" />
-                </Link>
-                <button className="writeCommentButton">후기작성</button>
-              </div>
-            </form>
+
+            <ProductCommentLists />
           </div>
 
           <TabMenu
@@ -86,7 +71,6 @@ export class ProductContent extends Component {
             goToDeliveryTab={() => {
               this.goToTabMenu(this.tabMenuDelivery);
             }}
-            datae-idx="3"
           />
 
           <div className="productDelivery" ref={this.tabMenuDelivery}>

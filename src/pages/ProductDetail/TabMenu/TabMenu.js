@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 export class TabMenu extends Component {
   render() {
@@ -14,21 +13,21 @@ export class TabMenu extends Component {
                 goToDescriptionTab();
               }}
             >
-              <Link to="/">상품상세정보</Link>
+              상품상세정보
             </li>
             <li
               onClick={() => {
                 goToReviewTab();
               }}
             >
-              <Link to="/">상품후기</Link>
+              상품후기
             </li>
             <li
               onClick={() => {
                 goToDeliveryTab();
               }}
             >
-              <Link to="/">배송/교환 및 반품안내</Link>
+              배송/교환 및 반품안내
             </li>
           </ul>
         </div>

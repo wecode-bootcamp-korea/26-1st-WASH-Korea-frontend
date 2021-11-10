@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { CATEGORIES, SUB_CATEGORIES } from './ProductInformationDatas';
 
-export class ProductInfo extends Component {
+export class ProductInformation extends Component {
   changePriceToString = price => {
-    let priceArr = price.toString().split('');
+    let includeCommaPrice = price.toString().split('');
     return (
-      priceArr.slice(0, priceArr.length - 3).join('') +
+      includeCommaPrice.slice(0, includeCommaPrice.length - 3).join('') +
       ',' +
-      priceArr.slice(priceArr.length - 3, priceArr.length).join('')
+      includeCommaPrice
+        .slice(includeCommaPrice.length - 3, includeCommaPrice.length)
+        .join('')
     );
   };
 
@@ -33,19 +36,24 @@ export class ProductInfo extends Component {
 
           <label htmlFor="categoryName"> &gt; </label>
           <select name="categoryName" id="categoryName">
-            <option value="shower">샤워</option>
-            <option value="body">바디</option>
-            <option value="face">페이스</option>
-            <option value="hair">헤어</option>
+            {CATEGORIES.map(category => {
+              return (
+                <option value={category.engName} key={category.id}>
+                  {category.korName}
+                </option>
+              );
+            })}
           </select>
 
           <label htmlFor="categoryName"> &gt; </label>
           <select name="categoryName" id="categoryName">
-            <option value="shower">샴푸</option>
-            <option value="body">비누</option>d
-            <option value="face">샤워젤</option>
-            <option value="hair">배쓰 밤</option>
-            <option value="supplies">용품</option>
+            {SUB_CATEGORIES.map(subcategory => {
+              return (
+                <option value={subcategory.engName} key={subcategory.id}>
+                  {subcategory.korName}
+                </option>
+              );
+            })}
           </select>
         </form>
 
@@ -54,17 +62,11 @@ export class ProductInfo extends Component {
           <p>{subName}</p>
         </div>
         <table className="productTable">
-          <colgroup>
-            <col width="16%" />
-            <col width="28%" />
-            <col width="56%" />
-          </colgroup>
-
           <thead />
           <tbody>
             <tr className="productPrice">
               <td>판매가</td>
-              <td colSpan="2" className="emPrice">
+              <td colSpan="2" className="emphasizePrice">
                 ₩ {this.changePriceToString(price)}
               </td>
             </tr>
@@ -107,4 +109,4 @@ export class ProductInfo extends Component {
   }
 }
 
-export default ProductInfo;
+export default ProductInformation;
