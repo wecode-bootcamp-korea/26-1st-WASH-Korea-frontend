@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import SELECT from './ListMenuSort';
+import menuList from './ListMenuSort';
 import './ListMenu.scss';
 
 export class ListMenu extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   selectChange = select => {
     const { location, history } = this.props;
     const paramsString = new URLSearchParams(location.search);
@@ -37,11 +32,11 @@ export class ListMenu extends Component {
     const { menuCategory, menuSubCategory, listHeader } = this.props;
 
     return (
-      <article className="listMenu">
+      <div className="listMenu">
         <div className="listTitle">
           <h2>{listHeader.name}</h2>
           <select defaultValue="기본순" onChange={this.selectChange}>
-            {SELECT.map(menu => {
+            {menuList.map(menu => {
               return (
                 <option key={menu.id} value={menu.value}>
                   {menu.name}
@@ -71,7 +66,7 @@ export class ListMenu extends Component {
             );
           })}
         </ul>
-      </article>
+      </div>
     );
   }
 }

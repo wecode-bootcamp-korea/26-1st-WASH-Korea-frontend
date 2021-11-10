@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { API } from '../../config';
 import ListHeader from './ListHeader/ListHeader';
 import ListMenu from './ListMenu/ListMenu';
-import Product from './Product/Product';
+import Products from './Product/Product';
 import './ProductList.scss';
 
 export class ProductList extends Component {
@@ -18,7 +19,7 @@ export class ProductList extends Component {
   componentDidUpdate(prevProps) {
     const { location } = this.props;
     if (location.search !== prevProps.location.search) {
-      fetch(`http://10.58.2.138:8000/products/productlist${location.search}`)
+      fetch(`${API.productlist}${location.search}`)
         .then(res => res.json())
         .then(data => {
           this.setState({
@@ -31,11 +32,7 @@ export class ProductList extends Component {
 
   componentDidMount() {
     const { location } = this.props;
-    fetch(
-      `http://10.58.2.138:8000/products/productlist${
-        location.search || '?category=1'
-      }`
-    )
+    fetch(`${API.productlist}${location.search || '?category=1'}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -44,7 +41,7 @@ export class ProductList extends Component {
         });
       });
 
-    fetch('http://10.58.2.138:8000/categories/1')
+    fetch(`${API.categories}/1`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -67,7 +64,9 @@ export class ProductList extends Component {
         />
         <div className="products">
           <ul className="productSpace">
-            <Product listProduct={product} />
+            {product.map(productInfo => {
+              return <Products product={productInfo} />;
+            })}
           </ul>
         </div>
       </div>
