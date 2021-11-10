@@ -1,8 +1,6 @@
 @import '../../styles/variables.scss';
 
 .register {
-  height: 1180px;
-
   .registerBox {
     width: 1080px;
     margin: 0 auto;
@@ -89,7 +87,7 @@
     .registerBtnWrapper {
       display: flex;
       justify-content: center;
-      padding-top: 40px;
+      padding: 60px;
 
       .registerBtn {
         width: 280px;

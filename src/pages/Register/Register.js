@@ -30,7 +30,7 @@ export class Register extends Component {
   submitForm = () => {
     const { userID, password, name, nickname, email, contact, address } =
       this.state;
-    fetch('http://10.58.2.138:8000/users/signup', {
+    fetch('http://10.58.3.253:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         user_name: userID,
