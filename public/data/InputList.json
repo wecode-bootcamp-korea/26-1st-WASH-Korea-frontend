@@ -13,7 +13,8 @@
     "name": "password",
     "content": "비밀번호",
     "inputType": "password",
-    "isNecessary": true
+    "isNecessary": true,
+    "isValid": false
   },
   {
     "id": 3,

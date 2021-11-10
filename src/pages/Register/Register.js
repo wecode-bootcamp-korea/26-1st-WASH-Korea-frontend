@@ -52,7 +52,7 @@ export class Register extends Component {
     });
     // this.validateId();
     this.validatePw(e);
-    // this.validateEmail(e);
+    this.validateEmail(e);
   };
 
   validatePw = () => {
@@ -67,8 +67,17 @@ export class Register extends Component {
     }
   };
 
-  checkValidation = name => {
-    if (name === 'password') {
+  validateEmail = e => {
+    const { email } = this.state;
+    const { name, value } = e.target;
+    const emailReg = email.includes('@') && email.includes('.');
+    if (name === 'email') {
+      checkEmail = name => {
+        e.preventDefault();
+        this.setState({
+          [name]: value,
+        });
+      };
     }
   };
 
@@ -104,7 +113,7 @@ export class Register extends Component {
                   isNecessary={input.isNecessary}
                   placeholder={input.placeholder}
                   distributeValueToKey={this.distributeValueToKey}
-                  // checkValidation={this.checkValidation}
+                  validateEmail={this.validateEmail}
                 />
               );
             })}
