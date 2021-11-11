@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import menuList from './ListMenuSort';
+import { MENU_LIST } from './ListMenuSort';
 import './ListMenu.scss';
 
 export class ListMenu extends Component {
-  selectChange = select => {
+  changeValueToQuery = select => {
     const { location, history } = this.props;
     const paramsString = new URLSearchParams(location.search);
 
@@ -30,13 +30,14 @@ export class ListMenu extends Component {
 
   render() {
     const { menuCategory, menuSubCategory, listHeader } = this.props;
+    const { changeValueToQuery } = this;
 
     return (
       <div className="listMenu">
         <div className="listTitle">
           <h2>{listHeader.name}</h2>
-          <select defaultValue="sortBasic" onChange={this.selectChange}>
-            {menuList.map(menu => {
+          <select defaultValue="sortBasic" onChange={changeValueToQuery}>
+            {MENU_LIST.map(menu => {
               return (
                 <option key={menu.id} value={menu.value}>
                   {menu.name}

@@ -16,23 +16,9 @@ export class ProductList extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
+  fetchProductList(condition) {
     const { location } = this.props;
-    if (location.search !== prevProps.location.search) {
-      fetch(`${API.productlist}${location.search}`)
-        .then(res => res.json())
-        .then(data => {
-          this.setState({
-            product: data.results.data,
-            header: data.results.products_header,
-          });
-        });
-    }
-  }
-
-  componentDidMount() {
-    const { location } = this.props;
-    fetch(`${API.productlist}${location.search || '?category=1'}`)
+    fetch(`${API.productlist}${location.search || condition}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -40,6 +26,17 @@ export class ProductList extends Component {
           header: data.results.products_header,
         });
       });
+  }
+
+  componentDidUpdate(prevProps) {
+    const { location } = this.props;
+    if (location.search !== prevProps.location.search) {
+      this.fetchProductList(true);
+    }
+  }
+
+  componentDidMount() {
+    this.fetchProductList('?category=1');
 
     fetch(`${API.categories}/1`)
       .then(res => res.json())
