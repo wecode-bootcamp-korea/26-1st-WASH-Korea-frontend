@@ -22,10 +22,11 @@ export class ListMenu extends Component {
 
   changeCategory = (value, id) => {
     const { history } = this.props;
-
-    value === 'Category'
-      ? history.push(`/productlist?category=${id}`)
-      : history.push(`/productlist?category=1&sub_category=${id}`);
+    history.push(
+      `/productlist?category=${
+        value === 'Category' ? id : `1&sub_category=${id}`
+      }`
+    );
   };
 
   render() {

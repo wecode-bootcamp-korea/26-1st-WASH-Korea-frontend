@@ -62,7 +62,7 @@ export class ProductList extends Component {
         <div className="products">
           <ul className="productSpace">
             {product.map(productInfo => {
-              return <Products product={productInfo} />;
+              return <Products product={productInfo} key={productInfo.id} />;
             })}
           </ul>
         </div>
