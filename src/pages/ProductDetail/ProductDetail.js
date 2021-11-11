@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API } from '../../config';
 import ProductThumbnail from './ProductThumbnail/ProductThumbnail';
 import ProductInformation from './ProductInformation/ProductInformation';
 import ProductButton from './ProductButton/ProductButton';
@@ -16,7 +17,7 @@ export class ProductDetail extends Component {
 
   getData = () => {
     const id = this.props.match.params.id;
-    fetch(`http://10.58.2.138:8000/products/${id}`)
+    fetch(`${API.product}/${id}`)
       .then(res => res.json())
       .then(res => this.setState({ details: res.result }));
   };
@@ -43,7 +44,6 @@ export class ProductDetail extends Component {
     const { quantity, details } = this.state;
     const { id, name, price, product_image, sub_name, weight, description } =
       details;
-    // console.log(id);
 
     return id ? (
       <>

@@ -21,7 +21,7 @@ export class Login extends Component {
 
   submitLoginForm = () => {
     const { idValue, pwValue } = this.state;
-    fetch(`${API}/users/login`, {
+    fetch(`${API.login}`, {
       method: 'POST',
       body: JSON.stringify({
         user_name: idValue,
