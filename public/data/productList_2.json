@@ -1,0 +1,30 @@
+{
+  "result": [
+    {
+      "id": 1,
+      "name": "바다바다",
+      "sub_name": "#바다의청량감을그대로 #샴푸",
+      "price": "14000",
+      "product_image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+      "isNew": true,
+      "tags": ["new", "best"],
+      "category": "샴푸",
+      "description": "당신이 꿈꿔온 건강한 두피와 모발을 경험할 수 있도록",
+      "image_url": "https://images.unsplash.com/photo-1556229181-695df2bf2d6f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80",
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "name": "망고 제스트",
+      "sub_name": "#망고껍질이송송 #샴푸",
+      "price": "20000",
+      "product_image": "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1180&q=80",
+      "isNew": false,
+      "tags": ["new"],
+      "category": "비누",
+      "description": "향기를 머금은 거품으로 구석구석 꼼꼼하게",
+      "image_url": "https://images.unsplash.com/photo-1622116619033-10aef17df728?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80",
+      "quantity": 2
+    }
+  ]
+}

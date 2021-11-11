@@ -1,0 +1,114 @@
+{
+  "result": [
+    {
+      "category": {
+        "id": 1,
+        "name": "샤워"
+      },
+      "id": 1,
+      "name": "레몬 코 워시",
+      "price": 50000,
+      "product_image": [
+        {
+          "id": 1,
+          "url": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg"
+        }
+      ],
+      "sub_category": {
+        "id": 1,
+        "name": "샴푸"
+      },
+      "sub_name": "#상큼한 모발 #샴푸바",
+      "weight": "55g",
+      "description": "안녕하세유"
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "샤워"
+      },
+      "id": 2,
+      "name": "몬틸노바",
+      "price": 52000,
+      "product_image": [
+        {
+          "id": 1,
+          "url": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg"
+        }
+      ],
+      "sub_category": {
+        "id": 1,
+        "name": "샴푸"
+      },
+      "sub_name": "#풍성한 거품 #샴푸바",
+      "weight": "55g",
+      "description": "안녕하세유"
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "샤워"
+      },
+      "id": 3,
+      "name": "겉 앤 플롯",
+      "price": 54000,
+      "product_image": [
+        {
+          "id": 1,
+          "url": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg"
+        }
+      ],
+      "sub_category": {
+        "id": 1,
+        "name": "샴푸"
+      },
+      "sub_name": "#두피케어의 모든 것 #샴푸바",
+      "weight": "55g",
+      "description": "안녕하세유"
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "샤워"
+      },
+      "id": 4,
+      "name": "허니 애플 워시드 유어 헤어",
+      "price": 54500,
+      "product_image": [
+        {
+          "id": 1,
+          "url": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg"
+        }
+      ],
+      "sub_category": {
+        "id": 1,
+        "name": "샴푸"
+      },
+      "sub_name": "#부드러운 머릿결 #샴푸바",
+      "weight": "55g",
+      "description": "안녕하세유"
+    },
+    {
+      "category": {
+        "id": 1,
+        "name": "샤워"
+      },
+      "id": 5,
+      "name": "슬라이딩 주니퍼",
+      "price": 56000,
+      "product_image": [
+        {
+          "id": 1,
+          "url": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg"
+        }
+      ],
+      "sub_category": {
+        "id": 1,
+        "name": "샴푸"
+      },
+      "sub_name": "#찰랑거리는 머릿결 #샴푸바",
+      "weight": "55g",
+      "description": "안녕하세유"
+    }
+  ]
+}

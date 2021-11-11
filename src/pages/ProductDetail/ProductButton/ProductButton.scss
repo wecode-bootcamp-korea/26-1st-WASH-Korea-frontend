@@ -1,0 +1,24 @@
+.productButton {
+  width: 1080px;
+  margin: 0 auto;
+  margin-top: 30px;
+  text-align: right;
+
+  button {
+    width: 250px;
+    height: 50px;
+    border: none;
+  }
+
+  .cartButton {
+    margin-right: 10px;
+    background-color: #fff;
+    border: 1px solid #000;
+  }
+
+  .orderButton {
+    margin-right: 20px;
+    background-color: #000;
+    color: #fff;
+  }
+}

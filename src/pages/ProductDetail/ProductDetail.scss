@@ -1,0 +1,126 @@
+@import '../../styles/variables.scss';
+
+$subColor: rgb(204, 204, 204);
+$subFontColor: #777;
+
+.productDetail {
+  @include flexSpaceBtw;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 150px;
+
+  .productThumbnail {
+    img {
+      display: block;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 460px;
+    }
+  }
+
+  .productInfo {
+    width: 540px;
+
+    .categoryFiltering {
+      width: 100%;
+
+      label {
+        padding: 0 10px;
+      }
+
+      select {
+        width: 120px;
+        padding: 1px 10px;
+        text-indent: 5px;
+        border: 0.5px solid $subColor;
+      }
+    }
+
+    .productName {
+      h2 {
+        margin-top: 50px;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      p {
+        padding: 10px 0;
+        margin-bottom: 20px;
+        color: $subFontColor;
+      }
+    }
+
+    .productTable {
+      width: 95%;
+      margin-bottom: 20px;
+      border-top: 0.5px solid $subColor;
+      border-bottom: 0.5px solid $subColor;
+
+      tbody {
+        tr {
+          td {
+            height: 60px;
+            line-height: 60px;
+            padding: 0 5px;
+          }
+
+          .emphasizePrice {
+            font-weight: 500;
+            font-size: 1.125rem;
+            letter-spacing: -0.6px;
+          }
+
+          .countButton {
+            @include flexSpaceBtw;
+            height: 40px;
+            line-height: 40px;
+            margin-bottom: 15px;
+            border: 0.5px solid $subColor;
+            text-align: center;
+
+            button {
+              border: none;
+              background: none;
+              font-size: 1.5rem;
+              cursor: pointer;
+            }
+          }
+        }
+        .productPrice {
+          width: 16%;
+        }
+        .productWeight {
+          width: 28%;
+        }
+        .productQuantity {
+          width: 56%;
+
+          td {
+            &:last-child {
+              text-indent: 10px;
+              font-weight: 500;
+              letter-spacing: -0.6px;
+            }
+          }
+        }
+      }
+    }
+
+    .totalPrice {
+      width: 510px;
+      p {
+        line-height: 40px;
+        text-align: right;
+        font-size: 1.325rem;
+
+        span {
+          padding-left: 10px;
+          font-weight: 600;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

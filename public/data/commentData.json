@@ -1,0 +1,15 @@
+{
+  "message": [
+    {
+      "user": 1,
+      "user_name": "kek0919",
+      "product_id": 1,
+      "product_name": "레몬 코 워시",
+      "rating": 5,
+      "content": "너무좋아요 !!!  ",
+      "image": "https://topclass.chosun.com/news_img/1807/1807_008_1.jpg",
+      "created_at": "2021-11-09T06:03:21.953Z",
+      "updated_at": "2021-11-09T06:03:21.953Z"
+    }
+  ]
+}
