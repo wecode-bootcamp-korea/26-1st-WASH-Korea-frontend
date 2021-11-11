@@ -5,8 +5,7 @@
     "content": "아이디",
     "inputType": "text",
     "isNecessary": true,
-    "isValid": false,
-    "value": ""
+    "isValid": false
   },
   {
     "id": 2,
@@ -14,14 +13,16 @@
     "content": "비밀번호",
     "inputType": "password",
     "isNecessary": true,
-    "isValid": false
+    "isValid": false,
+    "errorMessage": "영문자, 숫자, 특수문자를 조합하여 9자리 이상 입력하세요."
   },
   {
     "id": 3,
     "name": "rePassword",
     "content": "비밀번호 확인",
     "inputType": "password",
-    "isNecessary": true
+    "isNecessary": true,
+    "isValid": false
   },
   {
     "id": 4,
@@ -42,7 +43,8 @@
     "name": "email",
     "content": "이메일",
     "inputType": "email",
-    "isNecessary": true
+    "isNecessary": true,
+    "errorMessage": "이메일은 <@>, <.> 를 포함하여야 합니다."
   },
   {
     "id": 7,

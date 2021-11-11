@@ -9,6 +9,7 @@ export class Register extends Component {
       inputList: [],
       userID: '',
       password: '',
+      rePassword: '',
       name: '',
       nickname: '',
       email: '',
@@ -28,9 +29,17 @@ export class Register extends Component {
   }
 
   submitForm = () => {
-    const { userID, password, name, nickname, email, contact, address } =
-      this.state;
-    fetch('http://10.58.3.253:8000/users/signup', {
+    const {
+      userID,
+      password,
+      rePassword,
+      name,
+      nickname,
+      email,
+      contact,
+      address,
+    } = this.state;
+    fetch('http://10.58.2.138:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         user_name: userID,
@@ -41,8 +50,30 @@ export class Register extends Component {
         contact: contact,
         address: address,
       }),
-    }).then(res => res.json());
-    // .then(result => if(result === "invaild"){alert("snow")}console.log('결과: ', result.ACCESS_TOKEN));
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'PW_VALIDATION_ERROR') {
+          alert('비밀번호를 정확하게 입력해주세요.');
+        } else if (result.message === 'EMAIL_VALIDATION_ERROR') {
+          alert('이메일을 정확하게 입력해주세요.');
+        } else if (result.message === 'ALREADY_EXISTS_EMAIL') {
+          alert('이미 존재하는 이메일 입니다.');
+        } else if (result.message === 'ALREADY_EXISTS_USERNAME') {
+          alert('이미 존재하는 아이디 입니다.');
+        } else if (userID.length === 0) {
+          alert('필수 항목을 모두 입력해주세요.');
+        } else if (rePassword.length === 0) {
+          alert('필수 항목을 모두 입력해주세요.');
+        } else if (name.length === 0) {
+          alert('필수 항목을 모두 입력해주세요.');
+        } else if (contact.length === 0) {
+          alert('필수 항목을 모두 입력해주세요.');
+        } else {
+          alert('회원 가입 성공!');
+          this.goToMain();
+        }
+      });
   };
 
   distributeValueToKey = e => {
@@ -50,35 +81,7 @@ export class Register extends Component {
     this.setState({
       [name]: value,
     });
-    // this.validateId();
-    this.validatePw(e);
-    this.validateEmail(e);
-  };
-
-  validatePw = () => {
-    const { password } = this.state;
-    const pwRegExp =
-      /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-    const afterPwTest = pwRegExp.test(password);
-    if (afterPwTest === false) {
-      return false;
-    } else {
-      return true;
-    }
-  };
-
-  validateEmail = e => {
-    const { email } = this.state;
-    const { name, value } = e.target;
-    const emailReg = email.includes('@') && email.includes('.');
-    if (name === 'email') {
-      checkEmail = name => {
-        e.preventDefault();
-        this.setState({
-          [name]: value,
-        });
-      };
-    }
+    console.log(value);
   };
 
   goToMain = () => {
@@ -113,7 +116,9 @@ export class Register extends Component {
                   isNecessary={input.isNecessary}
                   placeholder={input.placeholder}
                   distributeValueToKey={this.distributeValueToKey}
-                  validateEmail={this.validateEmail}
+                  validator={validator[input.name]}
+                  value={this.state[input.name]}
+                  errorMessage={input.errorMessage}
                 />
               );
             })}
@@ -134,3 +139,21 @@ export class Register extends Component {
 }
 
 export default Register;
+
+const validator = {
+  userID: value => value.length >= 4,
+  password: value => {
+    const pwRegExp =
+      /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
+    const result = pwRegExp.test(value);
+    if (result === true) {
+      return true;
+    }
+  },
+  rePassword: value => value.length >= 2,
+  name: value => value.length >= 2,
+  nickname: value => value.length >= 0,
+  email: value => value.includes('@') && value.includes('.'),
+  contact: value => value.length >= 10,
+  address: value => value.length >= 0,
+};

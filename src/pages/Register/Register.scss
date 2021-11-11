@@ -3,8 +3,8 @@
 .register {
   .registerBox {
     width: 1080px;
-    margin: 0 auto;
     padding-top: 100px;
+    margin: 0 auto;
 
     .header {
       padding: 90px 0 50px 0;
@@ -67,6 +67,7 @@
           align-items: center;
           width: 155px;
           height: 40px;
+
           .smallSquare {
             color: #bb192e;
           }
@@ -76,28 +77,48 @@
           padding-left: 14px;
         }
 
-        .text {
-          width: 400px;
-          padding: 0 10px;
-          border: 1px solid lightgray;
+        .input {
+          display: flex;
+          flex-direction: column;
+
+          .borderRed {
+            display: block;
+            width: 400px;
+            height: 38px;
+            padding: 0 10px;
+            border: 2px solid #c92300;
+          }
+
+          .borderNormal {
+            display: block;
+            width: 400px;
+            height: 38px;
+            padding: 0 10px;
+            border: 1px solid gray;
+          }
+
+          .errorMessage {
+            color: red;
+            font-size: 14px;
+          }
         }
       }
     }
+  }
 
-    .registerBtnWrapper {
-      display: flex;
-      justify-content: center;
-      padding: 60px;
+  .registerBtnWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 60px;
 
-      .registerBtn {
-        width: 280px;
-        height: 63px;
-        border: none;
-        background-color: black;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-      }
+    .registerBtn {
+      width: 280px;
+      height: 63px;
+      border: none;
+      background-color: black;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
     }
   }
 }
