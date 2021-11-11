@@ -41,7 +41,7 @@ export class Login extends Component {
 
   goToMain = () => {
     const { history } = this.props;
-    history.push('/MainSg');
+    history.push('/productList');
   };
 
   render() {
