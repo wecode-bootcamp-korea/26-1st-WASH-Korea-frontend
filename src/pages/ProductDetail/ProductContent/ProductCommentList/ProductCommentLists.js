@@ -83,14 +83,14 @@ class ProductCommentLists extends Component {
   };
 
   onCreate = (id, productValue) => {
-    const { productList } = this.state;
+    const { productList, rating } = this.state;
     this.setState({
       productList: productList.concat({
         product_id: id,
         user_name: productList.user_name,
         created_at: productList.created_at,
         image: productList.image,
-        rating: this.state.rating,
+        rating: rating,
         content: productValue,
       }),
     });
