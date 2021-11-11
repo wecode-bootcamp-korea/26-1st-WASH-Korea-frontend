@@ -1,65 +1,155 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { IoMdCamera } from 'react-icons/io';
 import ProductComment from './ProductComment';
 
 class ProductCommentLists extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       productList: [],
-      productValue: '',
+      content: '',
+      image: 'https://topclass.chosun.com/news_img/1807/1807_008_1.jpg',
+      rating: 5,
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json')
+    const { productId } = this.props;
+    console.log(productId);
+    fetch(`http://10.58.2.138:8000/reviews?product_id=${productId}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          productList: data.result.message,
+          productList: data.result,
         });
       });
   }
 
+  addReviewComments = id => {
+    const { content, image, rating } = this.state;
+    fetch('http://10.58.2.138:8000/reviews', {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.cJyUeizTwoBYNDXiZcxyd1tFfQuKm25LZJmlzQbIduE',
+      },
+      body: JSON.stringify({
+        product_id: id,
+        content: content,
+        image: image,
+        rating: rating,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          content: data.content,
+          image: data.image,
+          rating: data.rating,
+        });
+        if (data.message === 'SUCCESS') {
+          this.viewReviewComments(id);
+        }
+      });
+  };
+
+  viewReviewComments = (id, input) => {
+    fetch(`http://10.58.2.138:8000/reviews?product_id=${id}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          productList: data.result,
+          content: input,
+        });
+      });
+    console.log(this.state.productList);
+  };
+
+  // removeReviewComments = () => {
+  //   const { productId } = this.props;
+  //   fetch(`http://10.58.2.138:8000/reviews/review_id`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       Authorization:
+  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.cJyUeizTwoBYNDXiZcxyd1tFfQuKm25LZJmlzQbIduE',
+  //     },
+  //     body: JSON.stringify({}),
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => productList.filter());
+  // };
+
+  handleChangeReviewInput = e => {
+    this.setState({ content: e.target.value });
+  };
+
+  onCreate = (id, productValue) => {
+    const { productList } = this.state;
+    this.setState({
+      productList: productList.concat({
+        product_id: id,
+        user_name: productList.user_name,
+        created_at: productList.created_at,
+        image: productList.image,
+        rating: this.state.rating,
+        content: productValue,
+      }),
+    });
+  };
+
   render() {
-    const { productList, productValue } = this.state;
+    const { productList, content } = this.state;
+    const { productId } = this.props;
 
     return (
-      <div className="productComment">
-        <ul>
-          {productList.map(comment => {
-            return (
-              <ProductComment
-                key={comment.proudct_id}
-                username={comment.user_name}
-                comment={comment.content}
-                stars={comment.rating}
-                commentImages={comment.image}
-              />
-            );
-          })}
-        </ul>
+      <div className="productCommentLists">
         <div className="productCommentInput">
-          <form className="CommentsForm">
-            <textarea
-              name="comments"
-              className="comments"
-              cols="30"
-              rows="15"
-              value={productValue}
-            />
+          <div className="CommentsForm">
+            <label>
+              <textarea
+                name="comments"
+                className="comments"
+                cols="30"
+                rows="10"
+                value={content}
+                onChange={this.handleChangeReviewInput}
+              />
+            </label>
             <div className="commentButton">
               <Link to="/" className="photoReviewButton">
                 <IoMdCamera className="photoReview" />
               </Link>
-              <button className="writeCommentButton">후기작성</button>
+              <button
+                type="button"
+                className="writeCommentButton"
+                onClick={e => {
+                  e.preventDefault();
+                  this.addReviewComments(productId);
+                  this.onCreate(productId, content);
+                }}
+              >
+                후기작성
+              </button>
             </div>
-          </form>
+          </div>
         </div>
+        {productList.map(review => {
+          return (
+            <ProductComment
+              key={review.review_id}
+              userName={review.user_name}
+              rating={review.rating}
+              content={review.content}
+              image={review.image}
+              timeStamp={review.created_at}
+              updateTimeStamp={review.update_at}
+            />
+          );
+        })}
       </div>
     );
   }
 }
 
-export default ProductCommentLists;
+export default withRouter(ProductCommentLists);

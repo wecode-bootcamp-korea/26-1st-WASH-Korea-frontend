@@ -1,5 +1,13 @@
 @import '../../../styles/variables.scss';
 
+@mixin actvieMenu {
+  border: 1px solid #000;
+  border-bottom: none;
+
+  a {
+    color: #000;
+  }
+}
 $subColor: rgb(204, 204, 204);
 $subFontColor: #777;
 
@@ -31,13 +39,37 @@ $subFontColor: #777;
         li + li {
           border-left: 0;
         }
-
-        .activeTabMenu {
-          border: 1px solid #000;
-          border-bottom: none;
-
-          a {
-            color: #000;
+      }
+    }
+    &:nth-child(1) {
+      .tabButton {
+        ul {
+          li {
+            &:nth-child(1) {
+              @include actvieMenu();
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(2) {
+      .tabButton {
+        ul {
+          li {
+            &:nth-child(2) {
+              @include actvieMenu();
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(4) {
+      .tabButton {
+        ul {
+          li {
+            &:nth-child(3) {
+              @include actvieMenu();
+            }
           }
         }
       }
@@ -80,6 +112,11 @@ $subFontColor: #777;
         }
       }
     }
+    .remove {
+      padding: 25px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
   }
 
   .productReviews {
@@ -100,49 +137,93 @@ $subFontColor: #777;
       padding-bottom: 20px;
       font-size: 1.25rem;
     }
+    .productComment {
+      width: 100%;
+      height: 230px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ccc;
 
-    .CommentsForm {
-      textarea {
-        width: 100%;
-        padding: 20px;
-        border: 1px solid $subColor;
+      .userInformation {
+        width: 200px;
+        padding: 20px 0 0 30px;
+      }
+      .userComment {
+        width: 80%;
+        height: 100%;
+        padding: 30px;
+        flex-wrap: wrap;
 
-        &:focus {
-          outline: $subColor;
+        img {
+          height: 160px;
+          margin-right: 20px;
+          float: left;
+        }
+        .content {
+          float: left;
+          width: 73%;
+          height: 100px;
+        }
+        .recommend {
+          float: left;
+          width: 40px;
+          height: 20px;
+          // width: 100%;
+        }
+        .recommendButton {
+          width: 68px;
+          height: 25px;
+          background-color: $fontColor;
+          border: 0.5px solid #777;
+          border-radius: 3px;
+          cursor: pointer;
         }
       }
+    }
+    .productCommentLists {
+      margin-bottom: 100px;
+      .CommentsForm {
+        textarea {
+          width: 100%;
+          padding: 20px;
+          border: 1px solid $subColor;
 
-      .commentButton {
-        @include flexSpaceBtw;
-        width: 100%;
-        height: 60px;
-        margin-bottom: 100px;
-        border: 0.5px solid $subColor;
-        border-top: none;
-
-        .photoReviewButton {
-          color: $subColor;
-
-          .photoReview {
-            width: 50px;
-            height: 40px;
-            margin-top: 10px;
-            margin-left: 10px;
+          &:focus {
+            outline: $subColor;
           }
         }
 
-        .writeCommentButton {
-          width: 140px;
-          height: 100%;
-          background: $fontColor;
-          border: 1px solid $bgColor;
-          font-weight: 600;
-          font-size: 1.125rem;
+        .commentButton {
+          @include flexSpaceBtw;
+          width: 100%;
+          height: 60px;
+          margin-bottom: 100px;
+          border: 0.5px solid $subColor;
+          border-top: none;
+
+          .photoReviewButton {
+            color: $subColor;
+
+            .photoReview {
+              width: 50px;
+              height: 40px;
+              margin-top: 10px;
+              margin-left: 10px;
+            }
+          }
+
+          .writeCommentButton {
+            width: 140px;
+            height: 100%;
+            background: $fontColor;
+            border: 1px solid $bgColor;
+            font-weight: 600;
+            font-size: 1.125rem;
+          }
         }
       }
     }
   }
-
   .productDelivery {
     position: relative;
     margin-bottom: 100px;

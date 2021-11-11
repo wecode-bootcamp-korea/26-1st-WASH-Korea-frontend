@@ -25,12 +25,6 @@ export class ProductDetail extends Component {
     this.getData();
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps.math.params.id !== this.props.match.params.id) {
-  //     this.getData();
-  //   }
-  // }
-
   countUpQunatity = () => {
     const { quantity } = this.state;
     this.setState({
@@ -49,6 +43,7 @@ export class ProductDetail extends Component {
     const { quantity, details } = this.state;
     const { id, name, price, product_image, sub_name, weight, description } =
       details;
+    // console.log(id);
 
     return id ? (
       <>
@@ -70,7 +65,11 @@ export class ProductDetail extends Component {
 
         <ProductButton />
 
-        <ProductContent productName={name} description={description} />
+        <ProductContent
+          productId={id}
+          productName={name}
+          description={description}
+        />
       </>
     ) : null;
   }

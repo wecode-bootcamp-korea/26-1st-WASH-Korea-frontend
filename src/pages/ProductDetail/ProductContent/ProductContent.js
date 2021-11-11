@@ -17,8 +17,8 @@ export class ProductContent extends Component {
   };
 
   render() {
-    const { productName, subName, description } = this.props;
-
+    const { productId, productName, subName, description } = this.props;
+    // console.log(productId);
     return (
       <section className="productContent">
         <TabMenu
@@ -57,8 +57,7 @@ export class ProductContent extends Component {
               Product Reviews <span>★★★★★ 0</span>
             </h2>
             <p>나만의 꿀팁이나 제품을 사용하는 생생한 모습을 보여주세요!</p>
-
-            <ProductCommentLists />
+            <ProductCommentLists productId={productId} />
           </div>
 
           <TabMenu
