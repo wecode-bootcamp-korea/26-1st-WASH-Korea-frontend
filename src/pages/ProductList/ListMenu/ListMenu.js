@@ -35,7 +35,7 @@ export class ListMenu extends Component {
       <div className="listMenu">
         <div className="listTitle">
           <h2>{listHeader.name}</h2>
-          <select defaultValue="기본순" onChange={this.selectChange}>
+          <select defaultValue="sortBasic" onChange={this.selectChange}>
             {menuList.map(menu => {
               return (
                 <option key={menu.id} value={menu.value}>
