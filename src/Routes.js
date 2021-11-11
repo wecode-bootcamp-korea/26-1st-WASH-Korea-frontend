@@ -5,8 +5,8 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
-import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
+import Footer from './components/Footer/Footer';
 
 class Routes extends Component {
   render() {
@@ -14,11 +14,11 @@ class Routes extends Component {
       <Router>
         <Nav />
         <Switch>
-          <Route exact path="/" component={ProductList} />
+          <Route exact path="/" component={ProductDetail} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/productList" component={ProductList} />
           <Route exact path="/productdetail/:id" component={ProductDetail} />
-          <Route exact path="/productlist" component={ProductList} />
           <Route exact path="/cart" component={Cart} />
         </Switch>
         <Footer />
