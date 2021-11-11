@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { HiShoppingCart } from 'react-icons/hi';
 import { FaUserCircle } from 'react-icons/fa';
-import { SubMenu } from './Components/SubMenu';
-import { MENUS, PRODUCT_SUB_MENUS } from './NavData';
+import { API } from '../../config';
+import { MENUS } from './NavData';
 import '../Nav/Nav.scss';
 
 export default class Nav extends Component {
@@ -12,6 +12,7 @@ export default class Nav extends Component {
     super(props);
     this.state = {
       visible: false,
+      category: [],
     };
   }
 
@@ -19,14 +20,24 @@ export default class Nav extends Component {
     this.setState({ visible: !isVisible });
   };
 
+  componentDidMount() {
+    fetch(`${API.categories}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          category: data.results,
+        });
+      });
+  }
+
   render() {
-    const { visible } = this.state;
+    const { visible, category } = this.state;
 
     return (
       <nav onMouseLeave={() => this.onUpdateVisible(true)}>
         <div className="innerNav">
           <h1 className="logo">
-            <Link to="/">
+            <Link to="/productlist?category=1">
               <img src="/images/logo.png" alt="wash korea logo" />
             </Link>
           </h1>
@@ -34,7 +45,6 @@ export default class Nav extends Component {
             <ul className="gnb">
               {MENUS.map((menu, idx) => {
                 const isProductMenu = !(menu === '제품');
-
                 return (
                   <li
                     key={idx}
@@ -55,7 +65,7 @@ export default class Nav extends Component {
             <Link to="/">
               <HiShoppingCart className="icon" />
             </Link>
-            <Link to="/">
+            <Link to="/login">
               <FaUserCircle className="icon" />
             </Link>
           </div>
@@ -63,8 +73,27 @@ export default class Nav extends Component {
         {visible && (
           <div className="lnbWrapper">
             <div className="lnb">
-              {PRODUCT_SUB_MENUS.map((menu, idx) => {
-                return <SubMenu subMenuList={menu} key={idx} />;
+              {category.map(menu => {
+                return (
+                  <ul className="SubMenu" key={menu.category_id}>
+                    <li key={menu.category_id}>
+                      <Link to={`/productlist?category=${menu.category_id}`}>
+                        {menu.category_name}
+                      </Link>
+                    </li>
+                    {menu.sub_categories.map(subMenu => {
+                      return (
+                        <li key={subMenu.sub_category_id}>
+                          <Link
+                            to={`/productlist?category=1&sub_category=${subMenu.sub_category_id}`}
+                          >
+                            {subMenu.sub_category_name}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                );
               })}
             </div>
           </div>
