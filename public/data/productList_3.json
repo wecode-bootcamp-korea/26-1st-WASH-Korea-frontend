@@ -1,0 +1,16 @@
+{
+  "result": [
+    {
+      "id": 1,
+      "name": "스노우 스파이스",
+      "sub_name": "#눈송이파이한조각 #비누",
+      "price": "42000",
+      "product_image": "https://images.unsplash.com/photo-1615484477201-9f4953340fab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1548&q=80",
+      "tags": [],
+      "category": "비누",
+      "description": "편안한 하루를 위해 향긋한 기운을 불어 넣어줄 시간",
+      "image_url": "https://images.unsplash.com/photo-1546552768-9e3a94b38a59?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80",
+      "quantity": 3
+    }
+  ]
+}

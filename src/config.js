@@ -5,10 +5,5 @@ export const API = {
   product: `${BASE_URL}/products`,
   productlist: `${BASE_URL}/products/productlist`,
   categories: `${BASE_URL}/categories`,
-  reviews: [
-    `${BASE_URL}/reviews`,
-    `${BASE_URL}/reviews/post`,
-    `${BASE_URL}/reviews/delete`,
-    `${BASE_URL}/reviews/update`,
-  ],
+  reviews: `${BASE_URL}/reviews`,
 };
