@@ -6,7 +6,7 @@ export class Product extends Component {
   render() {
     const { product } = this.props;
     return (
-      <Link to={`/productDetail/${product.id}`} key={product.id}>
+      <Link to={`/productdetail/${product.id}`} key={product.id}>
         <li className="productParts">
           <div className="listContent">
             <img
