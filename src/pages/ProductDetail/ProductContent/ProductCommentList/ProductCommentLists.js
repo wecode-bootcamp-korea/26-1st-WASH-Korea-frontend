@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API } from '../../../../config';
 import { Link, withRouter } from 'react-router-dom';
 import { IoMdCamera } from 'react-icons/io';
 import ProductComment from './ProductComment';
@@ -16,7 +17,7 @@ class ProductCommentLists extends Component {
 
   componentDidMount() {
     const { productId } = this.props;
-    fetch(`http://10.58.2.138:8000/reviews?product_id=${productId}`)
+    fetch(`${API.reviews}?product_id=${productId}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -27,7 +28,7 @@ class ProductCommentLists extends Component {
 
   addReviewComments = id => {
     const { content, image, rating } = this.state;
-    fetch('http://10.58.2.138:8000/reviews', {
+    fetch(`${API.reviews}`, {
       method: 'POST',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -53,7 +54,7 @@ class ProductCommentLists extends Component {
   };
 
   viewReviewComments = (id, input) => {
-    fetch(`http://10.58.2.138:8000/reviews?product_id=${id}`)
+    fetch(`${API.reviews}?product_id=${id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -83,13 +84,13 @@ class ProductCommentLists extends Component {
   };
 
   onCreate = (id, productValue) => {
-    const { productList, rating } = this.state;
+    const { productList, rating, image } = this.state;
     this.setState({
       productList: productList.concat({
         product_id: id,
         user_name: productList.user_name,
         created_at: productList.created_at,
-        image: productList.image,
+        image: image,
         rating: rating,
         content: productValue,
       }),

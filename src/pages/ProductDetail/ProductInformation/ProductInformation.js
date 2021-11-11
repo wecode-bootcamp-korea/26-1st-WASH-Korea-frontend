@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { CATEGORIES, SUB_CATEGORIES } from './ProductInformationDatas';
 
 export class ProductInformation extends Component {
@@ -46,10 +47,18 @@ export class ProductInformation extends Component {
           </select>
 
           <label htmlFor="categoryName"> &gt; </label>
-          <select name="categoryName" id="categoryName">
+          <select
+            name="categoryName"
+            id="categoryName"
+            onChange={e => {
+              this.props.history.push(
+                `/productlist?category=1&sub_category=${e.target.value}`
+              );
+            }}
+          >
             {SUB_CATEGORIES.map(subcategory => {
               return (
-                <option value={subcategory.engName} key={subcategory.id}>
+                <option value={subcategory.id} key={subcategory.id}>
                   {subcategory.korName}
                 </option>
               );
@@ -109,4 +118,4 @@ export class ProductInformation extends Component {
   }
 }
 
-export default ProductInformation;
+export default withRouter(ProductInformation);

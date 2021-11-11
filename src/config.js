@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.58.2.138:8000';
+const BASE_URL = 'http://54.180.106.227:8000';
 export const API = {
   login: `${BASE_URL}/users/login`,
   register: `${BASE_URL}/users/signup`,

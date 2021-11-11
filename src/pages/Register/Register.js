@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { API } from '../../config';
 import Inputs from './Inputs';
 import './Register.scss';
 
@@ -39,7 +40,7 @@ export class Register extends Component {
       contact,
       address,
     } = this.state;
-    fetch('http://10.58.2.138:8000/users/signup', {
+    fetch(`${API.register}`, {
       method: 'POST',
       body: JSON.stringify({
         user_name: userID,
