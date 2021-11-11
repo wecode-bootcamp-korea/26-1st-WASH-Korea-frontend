@@ -16,7 +16,6 @@ class ProductCommentLists extends Component {
 
   componentDidMount() {
     const { productId } = this.props;
-    console.log(productId);
     fetch(`http://10.58.2.138:8000/reviews?product_id=${productId}`)
       .then(res => res.json())
       .then(data => {
@@ -31,8 +30,7 @@ class ProductCommentLists extends Component {
     fetch('http://10.58.2.138:8000/reviews', {
       method: 'POST',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.cJyUeizTwoBYNDXiZcxyd1tFfQuKm25LZJmlzQbIduE',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         product_id: id,
@@ -63,9 +61,9 @@ class ProductCommentLists extends Component {
           content: input,
         });
       });
-    console.log(this.state.productList);
   };
 
+  //추가 구현예정
   // removeReviewComments = () => {
   //   const { productId } = this.props;
   //   fetch(`http://10.58.2.138:8000/reviews/review_id`, {

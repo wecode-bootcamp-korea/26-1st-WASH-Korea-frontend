@@ -26,10 +26,12 @@ $subFontColor: #777;
         height: 60px;
         line-height: 60px;
         text-align: center;
+
         li {
           width: 33.33%;
           border: 1px solid $subColor;
           border-bottom: 1px solid #000;
+
           a {
             width: 100%;
             color: $subFontColor;
@@ -112,6 +114,7 @@ $subFontColor: #777;
         }
       }
     }
+
     .remove {
       padding: 25px;
       font-size: 1.5rem;
@@ -138,38 +141,41 @@ $subFontColor: #777;
       font-size: 1.25rem;
     }
     .productComment {
-      width: 100%;
-      height: 230px;
       display: flex;
       justify-content: space-between;
+      width: 100%;
+      height: 230px;
       border-top: 1px solid #ccc;
 
       .userInformation {
         width: 200px;
         padding: 20px 0 0 30px;
       }
+
       .userComment {
+        flex-wrap: wrap;
         width: 80%;
         height: 100%;
         padding: 30px;
-        flex-wrap: wrap;
 
         img {
+          float: left;
           height: 160px;
           margin-right: 20px;
-          float: left;
         }
+
         .content {
           float: left;
           width: 73%;
           height: 100px;
         }
+
         .recommend {
           float: left;
           width: 40px;
           height: 20px;
-          // width: 100%;
         }
+
         .recommendButton {
           width: 68px;
           height: 25px;
@@ -180,8 +186,10 @@ $subFontColor: #777;
         }
       }
     }
+
     .productCommentLists {
       margin-bottom: 100px;
+
       .CommentsForm {
         textarea {
           width: 100%;
