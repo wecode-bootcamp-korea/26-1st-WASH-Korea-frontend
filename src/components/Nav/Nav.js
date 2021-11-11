@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { API } from '../../config';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { HiShoppingCart } from 'react-icons/hi';
 import { FaUserCircle } from 'react-icons/fa';
+import { API } from '../../config';
 import { MENUS } from './NavData';
 import '../Nav/Nav.scss';
 
