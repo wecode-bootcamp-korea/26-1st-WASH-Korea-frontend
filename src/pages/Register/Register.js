@@ -81,7 +81,6 @@ export class Register extends Component {
     this.setState({
       [name]: value,
     });
-    console.log(value);
   };
 
   goToMain = () => {
